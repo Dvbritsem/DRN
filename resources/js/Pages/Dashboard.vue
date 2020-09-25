@@ -11,9 +11,6 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <welcome />
                 </div>
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <wachtlijst />
-                </div>
             </div>
         </div>
     </app-layout>
@@ -22,13 +19,11 @@
 <script>
     import AppLayout from './../Layouts/AppLayout'
     import Welcome from './../Jetstream/Welcome'
-    import Wachtlijst from "../Wachtlijst/Wachtlijst";
 
     export default {
         components: {
             AppLayout,
-            //Welcome,
-            Wachtlijst,
+            Welcome,
         },
     }
 </script>

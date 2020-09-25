@@ -7,7 +7,8 @@
 
             <div class="ml-12">
                 <div class="mt-2 text-sm text-gray-500">
-                    Hier komt de speltak te staan.
+                    <p>Hier komt de speltak te staan.</p>
+                    <p v-show="speltak">{{speltak}}</p>
                 </div>
             </div>
         </div>
@@ -15,5 +16,7 @@
 </template>
 
 <script>
-
+    export default {
+        props: ['speltak'],
+    }
 </script>

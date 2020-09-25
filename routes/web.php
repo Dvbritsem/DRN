@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function() {
+    if (Auth::check()) {
+        return Inertia\Inertia::render('Dashboard');
+    }
+    else {
+        return view('auth.login');
+    }
+})->name('CheckIfLoggedIn');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
+
+Route::get('/user/wachtlijst', [\App\Http\Controllers\WachtlijstController::class, 'index'])->name('wachtlijst');
+

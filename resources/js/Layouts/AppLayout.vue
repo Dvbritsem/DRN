@@ -14,8 +14,14 @@
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
+                            <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard' || $page.currentRouteName == ''">
                                 Dashboard
+                            </jet-nav-link>
+                            <jet-nav-link href="../user/profile" :active="$page.currentRouteName == 'profile.show'">
+                                Profile
+                            </jet-nav-link>
+                            <jet-nav-link href="../user/wachtlijst" :active="$page.currentRouteName == 'wachtlijst'">
+                                Wachtlijst
                             </jet-nav-link>
                         </div>
                     </div>
@@ -38,6 +44,10 @@
 
                                     <jet-dropdown-link href="/user/profile">
                                         Profile
+                                    </jet-dropdown-link>
+
+                                    <jet-dropdown-link href="/user/wachtlijst">
+                                        Wachtlijst
                                     </jet-dropdown-link>
 
                                     <jet-dropdown-link href="/user/api-tokens" v-if="$page.jetstream.hasApiFeatures">
@@ -108,8 +118,14 @@
             <!-- Responsive Navigation Menu -->
             <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
+                    <jet-responsive-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard' || $page.currentRouteName == '/'">
                         Dashboard
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="../user/profile" :active="$page.currentRouteName == 'profile.show'">
+                        Profile
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="../user/wachtlijst" :active="$page.currentRouteName == 'wachtlijst'">
+                        Wachtlijst
                     </jet-responsive-nav-link>
                 </div>
 

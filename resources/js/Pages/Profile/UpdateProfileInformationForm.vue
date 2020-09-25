@@ -54,6 +54,13 @@
                 <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" />
                 <jet-input-error :message="form.error('email')" class="mt-2" />
             </div>
+
+            <!-- Birthday -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="birthday" value="Birthday" />
+                <jet-input id="birthday" type="date" class="mt-1 block w-full" v-model="form.birthday" />
+                <jet-input-error :message="form.error('birthday')" class="mt-2" />
+            </div>
         </template>
 
         <template #actions>
@@ -88,7 +95,7 @@
             JetSecondaryButton,
         },
 
-        props: ['name', 'email'],
+        props: ['name', 'email', 'birthday'],
 
         data() {
             return {
@@ -96,6 +103,7 @@
                     '_method': 'PUT',
                     name: this.name,
                     email: this.email,
+                    birthday: this.birthday,
                     photo: null,
                 }, {
                     bag: 'updateProfileInformation',
