@@ -27,5 +27,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/user/wachtlijst', [\App\Http\Controllers\WachtlijstController::class, 'index'])->name('wachtlijst');
+Route::get('/user/wachtlijst', [\App\Http\Controllers\WachtlijstController::class, 'role'])->name('rolechecker')->middleware('auth');
 
+Route::post('/user/wachtlijst/serach', [\App\Http\Controllers\WachtlijstController::class, 'search'])->middleware('auth');
