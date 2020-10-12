@@ -31,6 +31,7 @@ class WachtlijstController extends Controller
         elseif ($role == 'admin'){
             $users = DB::table('users')
                 ->whereNotNull('signup_date')
+                ->orderBy('signup_date', 'asc')
                 ->get();
 
             return Inertia::render('AdminWachtlijst', [
@@ -39,7 +40,23 @@ class WachtlijstController extends Controller
         }
     }
 
-    public function search(){
-        return Inertia::render('Dashboard');
+    public function search(Request $request)
+    {
+        $name = $request->input('name');
+
+        $speltak = $request->input('speltak', '');
+
+        $users = DB::table('users')
+            ->whereNotNull('signup_date')
+            ->where([
+                ['name', 'LIKE', '%' . $name . '%'],
+                ['speltak', 'LIKE', '%' . $speltak . '%'],
+            ])
+            ->orderBy('signup_date', 'asc')
+            ->get();
+
+        return Inertia::render('AdminWachtlijst', [
+            'users' => $users,
+        ]);
     }
 }

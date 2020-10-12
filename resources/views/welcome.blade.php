@@ -46,6 +46,7 @@
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    @can('admin')
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-6">
                             <div class="flex items-center">
@@ -99,6 +100,7 @@
                             </div>
                         </div>
                     </div>
+                        @endcan
                 </div>
 
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">

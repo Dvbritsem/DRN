@@ -22,7 +22,7 @@
                                         Speltak
                                     </th>
                                     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider whitespace-no-wrap">
-                                        Dagen op de wachtlijst
+                                        Datum van aanmelding
                                     </th>
                                     <th class="px-6 py-3 bg-gray-50"></th>
                                 </tr>
@@ -46,7 +46,7 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-no-wrap text-center text-sm leading-5 font-medium">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <a href="" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                     </td>
                                 </tr>
                                 </tbody>

@@ -1,26 +1,35 @@
 <template>
-    <div class="py-6">
+    <div class="py-6 lg:w-1/4">
         <div class="max-w-7xl mx-auto">
             <div class="bg-white overflow-hidden shadow sm:rounded-lg border-b">
-                <jet-form-section2 @submitted="searchUser">
+                <jet-form-section2 @submitted="filterUsers">
                     <template #title>
-                        Zoek een lid
+                        Filter
                     </template>
 
                     <template #description>
-                        Zoek hier op de naam van het lid.
+                        Laat alle leden van een speltak zien.
                     </template>
 
                     <template #form>
                         <div class="col-span-6 sm:col-span-4">
-                            <jet-label for="name" value="Naam" />
-                            <jet-input id="name" name="name" type="text" v-model="form.name" class="mt-1 block w-full"/>
+                            <jet-label for="speltak">
+                                Speltak
+                            </jet-label>
+                            <div class="relative">
+                                <select class="form-input rounded-md shadow-sm" id="speltak" v-model="form.speltak">
+                                    <option selected value="">Alle</option>
+                                    <option>Bevers</option>
+                                    <option>Welpen</option>
+                                    <option>Zeeverkenners</option>
+                                </select>
+                            </div>
                         </div>
                     </template>
 
                     <template #actions>
                         <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                            Zoeken
+                            Filter
                         </jet-button>
                     </template>
                 </jet-form-section2>
@@ -50,7 +59,7 @@
         props: ['users'],
 
         methods: {
-            searchUser() {
+            filterUsers() {
                 this.form.post('/user/wachtlijst', {
                     preserveScroll: true
                 })
@@ -60,9 +69,11 @@
         data() {
             return {
                 form: this.$inertia.form({
-                    name: this.name,
+                    speltak: this.speltak,
                 })
             }
         },
+
+
     }
 </script>
