@@ -14,13 +14,13 @@
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard' || $page.currentRouteName == ''">
+                            <jet-nav-link href="/../dashboard" :active="$page.currentRouteName == 'dashboard' || $page.currentRouteName == ''">
                                 Dashboard
                             </jet-nav-link>
-                            <jet-nav-link href="../user/profile" :active="$page.currentRouteName == 'profile.show'">
+                            <jet-nav-link href="../../user/profile" :active="$page.currentRouteName == 'profile.show'">
                                 Profile
                             </jet-nav-link>
-                            <jet-nav-link href="../user/wachtlijst" :active="$page.currentRouteName == 'wachtlijst'">
+                            <jet-nav-link href="../../user/wachtlijst" :active="$page.currentRouteName == 'wachtlijst'">
                                 Wachtlijst
                             </jet-nav-link>
                         </div>

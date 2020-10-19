@@ -30,3 +30,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/user/wachtlijst', [\App\Http\Controllers\WachtlijstController::class, 'role'])->name('wachtlijst')->middleware('auth');
 Route::post('/user/wachtlijst', [\App\Http\Controllers\WachtlijstController::class, 'search'])->middleware('auth')->name('search');
 
+Route::get('/user/view/{id}', [\App\Http\Controllers\WachtlijstController::class, 'view'])->middleware('auth')->name('UserInfo');
+Route::post('/user/view/{id}', [\App\Http\Controllers\WachtlijstController::class, 'update'])->middleware('auth');

@@ -46,7 +46,9 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-no-wrap text-center text-sm leading-5 font-medium">
-                                        <a href="" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <a :href="'view/' + user.id" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                            Edit
+                                        </a>
                                     </td>
                                 </tr>
                                 </tbody>
