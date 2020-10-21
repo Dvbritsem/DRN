@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->date('birthday')->nullable();
             $table->date('signup_date')->nullable();
             $table->string('Role')->default('user');
+            $table->string('status')->default('niet actief');
         });
     }
 

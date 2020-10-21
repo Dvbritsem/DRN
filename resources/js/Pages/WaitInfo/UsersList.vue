@@ -24,6 +24,9 @@
                                     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider whitespace-no-wrap">
                                         Datum van aanmelding
                                     </th>
+                                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider whitespace-no-wrap">
+                                        Status
+                                    </th>
                                     <th class="px-6 py-3 bg-gray-50"></th>
                                 </tr>
                                 </thead>
@@ -45,6 +48,10 @@
                                         {{user.signup_date}}
                                     </td>
 
+                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                        <status-toggle :user="user"/>
+                                    </td>
+
                                     <td class="px-6 py-4 whitespace-no-wrap text-center text-sm leading-5 font-medium">
                                         <a :href="'view/' + user.id" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                                             Edit
@@ -62,7 +69,12 @@
 </template>
 
 <script>
+    import StatusToggle from "./StatusToggle"
+
     export default {
+        components: {
+            StatusToggle,
+        },
         props: ['users'],
     }
 </script>

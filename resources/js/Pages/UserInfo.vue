@@ -14,6 +14,14 @@
 
                 <jet-section-border />
             </div>
+
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <DeleteUser
+                    :lid="lid"
+                />
+
+                <jet-section-border />
+            </div>
         </div>
     </app-layout>
 </template>
@@ -22,6 +30,7 @@
     import AppLayout from '../Layouts/AppLayout'
     import JetSectionBorder from '../Jetstream/SectionBorder'
     import UpdateUserInformationForm from '../Jetstream/UpdateUserInformationForm'
+    import DeleteUser from "../Jetstream/DeleteUser";
 
     export default {
         props: ['lid'],
@@ -30,6 +39,7 @@
             AppLayout,
             JetSectionBorder,
             UpdateUserInformationForm,
+            DeleteUser,
         },
     }
 </script>

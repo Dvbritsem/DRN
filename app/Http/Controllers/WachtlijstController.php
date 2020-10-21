@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
+use Laravel\Jetstream\Contracts\DeletesUsers;
 use mysql_xdevapi\Table;
 
 class WachtlijstController extends Controller
@@ -105,5 +109,32 @@ class WachtlijstController extends Controller
             ]);
 
         return redirect()->route('UserInfo', $request->input('id'));
+    }
+
+    public function delete(Request $request)
+    {
+        $user = $request->input('id');
+
+        DB::table('users')
+            ->where('id', $user)
+            ->destroy();
+
+        return redirect()->route('wachtlijst');
+    }
+
+    public function changeStatus(Request $request)
+    {
+        if($request->input('status') == 'niet actief'){
+            $newStatus = 'actief';
+        }
+        elseif ($request->input('status') == 'actief'){
+            $newStatus = 'niet actief';
+        }
+
+        DB::table('users')
+            ->where('id', $request->input('id'))
+            ->update(['status' => $newStatus]);
+
+        return redirect()->to('/user/wachtlijst');
     }
 }

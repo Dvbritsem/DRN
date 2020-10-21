@@ -32,3 +32,8 @@ Route::post('/user/wachtlijst', [\App\Http\Controllers\WachtlijstController::cla
 
 Route::get('/user/view/{id}', [\App\Http\Controllers\WachtlijstController::class, 'view'])->middleware('auth')->name('UserInfo');
 Route::post('/user/view/{id}', [\App\Http\Controllers\WachtlijstController::class, 'update'])->middleware('auth');
+
+Route::delete('/user/delete', [\App\Http\Controllers\WachtlijstController::class, 'delete'])->middleware('auth')->name('DeleteUser');
+
+Route::post('/user/changeStatus', [\App\Http\Controllers\WachtlijstController::class, 'changeStatus'])->middleware('auth');
+
